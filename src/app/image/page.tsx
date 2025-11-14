@@ -141,75 +141,93 @@ export default function ImagePage() {
   };
 
   return (
-    <Container fluid className="py-4 mt-5">
+    <Container fluid className="py-3 py-md-4 mt-4 mt-md-5">
       <Row className="justify-content-center">
-        <Col xs={12} lg={10} xl={8}>
+        <Col xs={12} sm={11} md={10} lg={10} xl={8}>
           <Card
-            className="shadow-lg border-0"
+            className="shadow-lg border-0 h-100"
             style={{
               borderRadius: "20px",
-              height: "calc(100vh - 180px)",
+              minHeight: "calc(100vh - 160px)",
+              maxHeight: "calc(100vh - 100px)",
               display: "flex",
               flexDirection: "column",
               background:
                 "linear-gradient(to bottom, rgba(102, 126, 234, 0.02), rgba(255, 255, 255, 1))",
             }}
           >
-            {/* Header com seletor de modelo */}
             <Card.Header
-              className="border-0 p-4"
+              className="border-0 p-3 p-md-4"
               style={{
                 background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
                 borderRadius: "20px 20px 0 0",
               }}
             >
               <Row className="align-items-center">
-                <Col xs={12} md={6} className="mb-3 mb-md-0">
+                <Col xs={12} md={6} className="mb-2 mb-md-0">
                   <div className="d-flex align-items-center gap-2 text-white">
-                    <BsImageFill size={28} />
+                    <BsImageFill size={20} className="d-md-none" />
+                    <BsImageFill size={28} className="d-none d-md-block" />
                     <div>
-                      <h4 className="mb-0 fw-bold">Gerador de Imagens</h4>
-                      <small className="opacity-75">
+                      <h5 className="mb-0 fw-bold d-md-none">Gerador</h5>
+                      <h4 className="mb-0 fw-bold d-none d-md-block">
+                        Gerador de Imagens
+                      </h4>
+                      <small className="opacity-75 d-none d-md-block">
                         Powered by Pollinations.ai (FLUX - 100% Free)
+                      </small>
+                      <small className="opacity-75 d-md-none">
+                        Gerador de Imagens
                       </small>
                     </div>
                   </div>
                 </Col>
                 <Col xs={12} md={6}>
-                  <div className="d-flex align-items-center gap-2">
-                    <BsLightningChargeFill className="text-white" size={20} />
-                    <Form.Select
-                      value={currentAspectRatio}
-                      onChange={(e) => setCurrentAspectRatio(e.target.value)}
-                      disabled={isLoading}
-                      className="border-0 shadow-sm"
-                    >
-                      {Object.entries(aspectRatioInfo).map(([key, info]) => (
-                        <option key={key} value={key}>
-                          {info.name} - {info.desc}
-                        </option>
-                      ))}
-                    </Form.Select>
-                  </div>
-                  {images.length > 0 && (
-                    <div className="text-white mt-2 small opacity-75">
-                      <Badge bg="light" text="dark" className="me-1">
-                        {images.length}
-                      </Badge>
-                      imagens geradas
+                  <div className="d-flex flex-column flex-md-row align-items-center gap-2">
+                    <div className="d-flex align-items-center gap-1">
+                      <BsLightningChargeFill
+                        className="text-white d-none d-md-block"
+                        size={20}
+                      />
+                      <BsLightningChargeFill
+                        className="text-white d-md-none"
+                        size={16}
+                      />
+                      <Form.Select
+                        value={currentAspectRatio}
+                        onChange={(e) => setCurrentAspectRatio(e.target.value)}
+                        disabled={isLoading}
+                        className="border-0 shadow-sm flex-grow-1"
+                        style={{ maxWidth: "100%" }}
+                      >
+                        {Object.entries(aspectRatioInfo).map(([key, info]) => (
+                          <option key={key} value={key}>
+                            {info.name} - {info.desc}
+                          </option>
+                        ))}
+                      </Form.Select>
                     </div>
-                  )}
+                    {images.length > 0 && (
+                      <div className="text-white mt-2 mt-md-0 small opacity-75 d-flex align-items-center">
+                        <Badge bg="light" text="dark" className="me-1">
+                          {images.length}
+                        </Badge>
+                        <span className="d-none d-md-inline">
+                          imagens geradas
+                        </span>
+                        <span className="d-md-none">img</span>
+                      </div>
+                    )}
+                  </div>
                 </Col>
               </Row>
             </Card.Header>
 
-            {/* Content Area */}
             <Card.Body
-              className="flex-grow-1 overflow-auto"
+              className="flex-grow-1 overflow-auto p-3 p-md-4"
               style={{ minHeight: 0 }}
             >
-              <div className="h-100 d-flex flex-column gap-4 p-3">
-                {/* Generator */}
+              <div className="h-100 d-flex flex-column gap-3 gap-md-4">
                 <div>
                   <ImageGenerator
                     onGenerate={handleGenerate}
@@ -217,7 +235,6 @@ export default function ImagePage() {
                   />
                 </div>
 
-                {/* Gallery */}
                 <div className="flex-grow-1">
                   <ImageGallery
                     images={images}

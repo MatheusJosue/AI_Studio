@@ -30,15 +30,15 @@ function MessageContent({ message }: { message: Message }) {
     <div
       className="p-3 rounded-3 shadow-sm position-relative"
       style={{
-        background: message.role === "user"
-          ? "linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
-          : "#ffffff",
+        background:
+          message.role === "user"
+            ? "linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
+            : "#ffffff",
         color: message.role === "user" ? "white" : "#212529",
         borderBottomLeftRadius: message.role === "assistant" ? "0" : undefined,
         borderBottomRightRadius: message.role === "user" ? "0" : undefined,
       }}
     >
-      {/* Copy Button for Assistant Messages */}
       {message.role === "assistant" && (
         <button
           onClick={handleCopy}
@@ -59,7 +59,6 @@ function MessageContent({ message }: { message: Message }) {
         </button>
       )}
 
-      {/* Message text with Markdown */}
       <div
         className="mb-2"
         style={{
@@ -119,14 +118,20 @@ function MessageContent({ message }: { message: Message }) {
               },
               ul({ node, children, ...props }: any) {
                 return (
-                  <ul style={{ marginLeft: "1.5rem", marginBottom: "0.5rem" }} {...props}>
+                  <ul
+                    style={{ marginLeft: "1.5rem", marginBottom: "0.5rem" }}
+                    {...props}
+                  >
                     {children}
                   </ul>
                 );
               },
               ol({ node, children, ...props }: any) {
                 return (
-                  <ol style={{ marginLeft: "1.5rem", marginBottom: "0.5rem" }} {...props}>
+                  <ol
+                    style={{ marginLeft: "1.5rem", marginBottom: "0.5rem" }}
+                    {...props}
+                  >
                     {children}
                   </ol>
                 );
@@ -140,7 +145,6 @@ function MessageContent({ message }: { message: Message }) {
         )}
       </div>
 
-      {/* Timestamp */}
       <div
         className="small"
         style={{
@@ -170,8 +174,9 @@ export function ChatMessages({
     <div
       className="flex-grow-1 overflow-auto p-4"
       style={{
-        background: "linear-gradient(to bottom, rgba(102, 126, 234, 0.02), transparent)",
-        minHeight: "400px"
+        background:
+          "linear-gradient(to bottom, rgba(102, 126, 234, 0.02), transparent)",
+        minHeight: "400px",
       }}
     >
       <AnimatePresence mode="popLayout">
@@ -183,7 +188,9 @@ export function ChatMessages({
             className="d-flex align-items-center justify-content-center h-100 text-center"
           >
             <div>
-              <div style={{ fontSize: "4rem" }} className="mb-3">💬</div>
+              <div style={{ fontSize: "4rem" }} className="mb-3">
+                💬
+              </div>
               <h2 className="h3 fw-bold mb-2">Inicie uma conversa</h2>
               <p className="text-muted">
                 Comece digitando uma pergunta ou comando abaixo
@@ -201,7 +208,9 @@ export function ChatMessages({
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.2 }}
               className={`d-flex ${
-                message.role === "user" ? "justify-content-end" : "justify-content-start"
+                message.role === "user"
+                  ? "justify-content-end"
+                  : "justify-content-start"
               }`}
             >
               <div
@@ -210,16 +219,16 @@ export function ChatMessages({
                 }`}
                 style={{ maxWidth: "75%" }}
               >
-                {/* Avatar */}
                 <div
                   className="d-flex align-items-center justify-content-center flex-shrink-0"
                   style={{
                     width: "40px",
                     height: "40px",
                     borderRadius: "50%",
-                    background: message.role === "user"
-                      ? "linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
-                      : "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
+                    background:
+                      message.role === "user"
+                        ? "linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
+                        : "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
                     color: "white",
                   }}
                 >
@@ -230,7 +239,6 @@ export function ChatMessages({
                   )}
                 </div>
 
-                {/* Message Content */}
                 <MessageContent message={message} />
               </div>
             </motion.div>
@@ -250,15 +258,23 @@ export function ChatMessages({
                     width: "40px",
                     height: "40px",
                     borderRadius: "50%",
-                    background: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
+                    background:
+                      "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
                     color: "white",
                   }}
                 >
                   <BsRobot size={24} />
                 </div>
-                <div className="bg-white p-3 rounded-3 shadow-sm" style={{ borderBottomLeftRadius: "0" }}>
+                <div
+                  className="bg-white p-3 rounded-3 shadow-sm"
+                  style={{ borderBottomLeftRadius: "0" }}
+                >
                   <div className="d-flex align-items-center gap-2">
-                    <Spinner animation="border" size="sm" style={{ color: "#f5576c" }} />
+                    <Spinner
+                      animation="border"
+                      size="sm"
+                      style={{ color: "#f5576c" }}
+                    />
                     <span className="text-muted small">Pensando...</span>
                   </div>
                 </div>

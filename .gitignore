@@ -42,3 +42,4 @@ lerna-debug.log*
 *.swo
 *~
 .DS_Store
+.vercel

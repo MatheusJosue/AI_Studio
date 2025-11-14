@@ -30,7 +30,6 @@ export function Header() {
   return (
     <header className="fixed top-0 left-0 right-0 bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800 z-50">
       <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
-        {/* Logo */}
         <Link href="/" className="flex items-center gap-2">
           <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
             <span className="text-white font-bold text-lg">✨</span>
@@ -40,7 +39,6 @@ export function Header() {
           </h1>
         </Link>
 
-        {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-6">
           <Link
             href="/chat"
@@ -66,12 +64,10 @@ export function Header() {
           </Link>
         </nav>
 
-        {/* Desktop Theme Toggle */}
         <div className="hidden md:block">
           <ThemeToggle />
         </div>
 
-        {/* Mobile Menu Button */}
         <div className="flex items-center gap-2 md:hidden">
           <ThemeToggle />
           <button
@@ -88,7 +84,6 @@ export function Header() {
         </div>
       </div>
 
-      {/* Mobile Navigation */}
       {mobileMenuOpen && (
         <div className="md:hidden fixed inset-0 top-[73px] bg-white dark:bg-gray-900 z-40 overflow-y-auto">
           <nav className="flex flex-col p-4 space-y-2">

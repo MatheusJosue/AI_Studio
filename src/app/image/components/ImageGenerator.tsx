@@ -71,7 +71,6 @@ export function ImageGenerator({
       animate={{ opacity: 1, y: 0 }}
       className="space-y-4 p-5 rounded-xl bg-gradient-to-r from-purple-50 to-blue-50 dark:from-gray-800 dark:to-gray-700 border border-purple-200 dark:border-gray-600"
     >
-      {/* Prompt Input */}
       <div className="space-y-2">
         <label className="block text-sm font-semibold text-gray-900 dark:text-white">
           Descreva a imagem que deseja gerar
@@ -93,7 +92,6 @@ export function ImageGenerator({
         </div>
       </div>
 
-      {/* Number of Images with Progress Bar */}
       <div className="space-y-3 m-3">
         <div className="flex items-center justify-between">
           <label className="block text-sm font-semibold text-gray-900 dark:text-white">
@@ -104,8 +102,7 @@ export function ImageGenerator({
           </span>
         </div>
 
-        {/* Progress Bar */}
-        <div className="space-y-2">
+        <div className="space-y-2 mt-3">
           <div className="w-full h-3 bg-gray-200 dark:bg-gray-600 rounded-full overflow-hidden border border-gray-300 dark:border-gray-500">
             <motion.div
               initial={{ width: 0 }}
@@ -116,8 +113,7 @@ export function ImageGenerator({
           </div>
         </div>
 
-        {/* Controls */}
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-3 mt-3">
           <button
             type="button"
             onClick={() => setNumImages(Math.max(1, numImages - 1))}
@@ -158,8 +154,7 @@ export function ImageGenerator({
         </div>
       </div>
 
-      {/* Enhanced Tips Section */}
-      <div className="space-y-3 p-4  m-5 rounded-xl bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 dark:from-gray-700 dark:via-gray-700 dark:to-gray-600 border border-purple-200 dark:border-purple-800/50">
+      <div className="space-y-3 p-4 mt-3 mb-3 rounded-xl bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 dark:from-gray-700 dark:via-gray-700 dark:to-gray-600 border border-purple-200 dark:border-purple-800/50">
         <div className="flex items-center gap-2">
           <span className="text-lg">✨</span>
           <h3 className="font-bold text-sm tex-white text-white">
@@ -218,7 +213,6 @@ export function ImageGenerator({
         </div>
       </div>
 
-      {/* Submit Button */}
       <motion.button
         whileHover={{ scale: isLoading ? 1 : 1.02 }}
         whileTap={{ scale: isLoading ? 1 : 0.98 }}
@@ -240,7 +234,6 @@ export function ImageGenerator({
         )}
       </motion.button>
 
-      {/* Footer Info */}
       <div className="text-center text-xs text-gray-500 dark:text-gray-400 pt-2 border-t border-gray-200 dark:border-gray-600">
         <p>Powered by Pollinations.ai (FLUX) • 100% Free • No login required</p>
       </div>

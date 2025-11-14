@@ -141,7 +141,6 @@ export default function ChatPage() {
                 "linear-gradient(to bottom, rgba(102, 126, 234, 0.02), rgba(255, 255, 255, 1))",
             }}
           >
-            {/* Header com seletor de modelo */}
             <Card.Header
               className="border-0 p-4"
               style={{
@@ -191,7 +190,6 @@ export default function ChatPage() {
               </Row>
             </Card.Header>
 
-            {/* Messages */}
             <Card.Body
               className="flex-grow-1 overflow-auto p-0"
               style={{ minHeight: 0 }}
@@ -199,7 +197,6 @@ export default function ChatPage() {
               <ChatMessages messages={messages} isLoading={isLoading} />
             </Card.Body>
 
-            {/* Input */}
             <Card.Footer
               className="border-0 p-4 bg-white"
               style={{ borderRadius: "0 0 20px 20px" }}

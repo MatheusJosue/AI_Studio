@@ -100,7 +100,6 @@ export function ImageGallery({
       animate={{ opacity: 1, y: 0 }}
       className="space-y-6 m-5"
     >
-      {/* Controls */}
       <div className="flex justify-between items-center mb-3">
         <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
           Galeria ({images.length})
@@ -117,7 +116,6 @@ export function ImageGallery({
         )}
       </div>
 
-      {/* Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <AnimatePresence mode="popLayout">
           {images.map((image, index) => (
@@ -129,7 +127,6 @@ export function ImageGallery({
               transition={{ delay: index * 0.05 }}
               className="group relative rounded-lg overflow-hidden bg-gray-200 dark:bg-gray-800 aspect-square border border-gray-300 dark:border-gray-700 hover:border-purple-500 dark:hover:border-purple-400 transition-colors"
             >
-              {/* Image */}
               <img
                 src={image.url}
                 alt={image.prompt}
@@ -137,7 +134,6 @@ export function ImageGallery({
                 onClick={() => handleImageClick(image)}
               />
 
-              {/* Overlay */}
               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors duration-200 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 pointer-events-none">
                 <div className="flex gap-2 pointer-events-auto">
                   <button
@@ -173,7 +169,6 @@ export function ImageGallery({
                 </div>
               </div>
 
-              {/* Prompt */}
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-3 translate-y-full group-hover:translate-y-0 transition-transform">
                 <p className="text-white text-xs line-clamp-2">
                   {image.prompt}
@@ -183,7 +178,6 @@ export function ImageGallery({
           ))}
         </AnimatePresence>
 
-        {/* Loading Skeleton */}
         {isLoading && (
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}

@@ -88,7 +88,6 @@ export function ChatInput({
   return (
     <div>
       <Form onSubmit={handleSubmit}>
-        {/* Controls */}
         <div className="d-flex gap-2 mb-3">
           <Button
             variant="outline-danger"
@@ -114,7 +113,6 @@ export function ChatInput({
           </Button>
         </div>
 
-        {/* Input */}
         <InputGroup>
           <Form.Control
             as="textarea"
