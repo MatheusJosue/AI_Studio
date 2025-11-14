@@ -1,0 +1,444 @@
+@import "tailwindcss";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  transition: background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  color: #212529;
+  transition: background 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+              color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html.dark body {
+  background: linear-gradient(135deg, #1a1d29 0%, #0f172a 100%);
+  color: #f1f5f9;
+}
+
+/* Smooth theme transitions for all elements */
+*,
+*::before,
+*::after {
+  transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              fill 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              stroke 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 4px;
+}
+
+html.dark ::-webkit-scrollbar-thumb {
+  background: #4b5563;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #9ca3af;
+}
+
+html.dark ::-webkit-scrollbar-thumb:hover {
+  background: #6b7280;
+}
+
+/* Code block styling */
+pre {
+  background-color: #1f2937;
+  color: #f3f4f6;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  overflow-x: auto;
+}
+
+html.dark pre {
+  background-color: #111827;
+}
+
+code {
+  font-family: "Monaco", "Courier New", monospace;
+  font-size: 0.875rem;
+}
+
+/* Selection styling */
+::selection {
+  background-color: #3b82f6;
+  color: #ffffff;
+}
+
+html.dark ::selection {
+  background-color: #1e40af;
+}
+
+/* Loading animation */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Skeleton loader */
+.skeleton {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  background-color: #e5e7eb;
+}
+
+html.dark .skeleton {
+  background-color: #374151;
+}
+
+/* Links */
+a {
+  color: #3b82f6;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: #2563eb;
+}
+
+html.dark a:hover {
+  color: #60a5fa;
+}
+
+/* Buttons */
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Focus styles for accessibility */
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+html.dark button:focus-visible,
+html.dark input:focus-visible,
+html.dark textarea:focus-visible {
+  outline-color: #60a5fa;
+}
+
+/* Bootstrap Card Enhancements */
+.card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+}
+
+/* Custom gradient backgrounds */
+.gradient-primary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.gradient-secondary {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+.gradient-info {
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+
+/* Shadow utilities */
+.shadow-primary {
+  box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+}
+
+.shadow-secondary {
+  box-shadow: 0 10px 30px rgba(240, 147, 251, 0.3);
+}
+
+/* Custom animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.5s ease-out;
+}
+
+/* Bootstrap dark mode enhancements */
+html.dark .card {
+  background-color: #1e293b;
+  border-color: #334155;
+  color: #f1f5f9;
+}
+
+html.dark .form-control,
+html.dark .form-select {
+  background-color: #1e293b;
+  border-color: #334155;
+  color: #f1f5f9 !important;
+}
+
+html.dark .form-control:focus,
+html.dark .form-select:focus {
+  background-color: #1e293b;
+  border-color: #667eea;
+  color: #f1f5f9 !important;
+  box-shadow: 0 0 0 0.25rem rgba(102, 126, 234, 0.25);
+}
+
+html.dark .btn {
+  border-color: #334155;
+}
+
+html.dark .text-muted {
+  color: #94a3b8 !important;
+}
+
+html.dark .alert-info {
+  background-color: rgba(102, 126, 234, 0.1);
+  border-color: rgba(102, 126, 234, 0.2);
+  color: #cbd5e1;
+}
+
+/* Enhanced input visibility */
+.form-control,
+.form-select {
+  font-size: 1rem !important;
+  font-weight: 400;
+  color: #212529 !important;
+}
+
+html.dark .form-control::placeholder,
+html.dark .form-select::placeholder {
+  color: #64748b !important;
+  opacity: 1;
+}
+
+.form-control::placeholder,
+.form-select::placeholder {
+  color: #6c757d !important;
+  opacity: 1;
+}
+
+/* Button enhancements */
+.btn {
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.btn:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Kbd tag styling */
+kbd {
+  background-color: #e9ecef;
+  color: #495057;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.875em;
+  font-family: monospace;
+  border: 1px solid #dee2e6;
+}
+
+html.dark kbd {
+  background-color: #334155;
+  color: #e2e8f0;
+  border-color: #475569;
+}
+
+/* Enhanced dark mode transitions */
+html.dark .card,
+html.dark .btn,
+html.dark .form-control,
+html.dark .form-select,
+html.dark .alert {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Card shadows in dark mode */
+html.dark .shadow,
+html.dark .shadow-sm,
+html.dark .shadow-lg {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Better button states in dark mode */
+html.dark .btn-outline-primary:hover {
+  background-color: #667eea;
+  border-color: #667eea;
+  color: white;
+}
+
+html.dark .btn-outline-danger:hover {
+  background-color: #dc3545;
+  border-color: #dc3545;
+  color: white;
+}
+
+/* Loading spinner colors */
+html.dark .spinner-border {
+  color: #667eea;
+}
+
+/* Better link colors in dark mode */
+html.dark a {
+  color: #8b9cff;
+}
+
+html.dark a:hover {
+  color: #a5b4ff;
+}
+
+/* Input focus states */
+.form-control:focus,
+.form-select:focus {
+  border-color: #667eea;
+  box-shadow: 0 0 0 0.25rem rgba(102, 126, 234, 0.25);
+}
+
+/* Prevent transitions on theme toggle elements */
+[data-theme-toggle] * {
+  transition: none !important;
+}
+
+/* Footer styling */
+footer {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+html.dark footer {
+  background: rgba(30, 41, 59, 0.8) !important;
+  border-color: #334155 !important;
+}
+
+html.dark footer a {
+  color: #8b9cff !important;
+}
+
+html.dark footer a:hover {
+  color: #a5b4ff !important;
+}
+
+html.dark footer .text-muted {
+  color: #94a3b8 !important;
+}
+
+/* Markdown content styling */
+.markdown-content {
+  line-height: 1.6;
+}
+
+.markdown-content p {
+  margin-bottom: 0.5rem;
+}
+
+.markdown-content h1,
+.markdown-content h2,
+.markdown-content h3,
+.markdown-content h4,
+.markdown-content h5,
+.markdown-content h6 {
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.markdown-content pre {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.markdown-content blockquote {
+  border-left: 3px solid #667eea;
+  padding-left: 1rem;
+  margin-left: 0;
+  color: #6c757d;
+}
+
+html.dark .markdown-content blockquote {
+  color: #94a3b8;
+  border-left-color: #8b9cff;
+}
+
+.markdown-content table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-bottom: 0.5rem;
+}
+
+.markdown-content th,
+.markdown-content td {
+  border: 1px solid #dee2e6;
+  padding: 0.5rem;
+  text-align: left;
+}
+
+html.dark .markdown-content th,
+html.dark .markdown-content td {
+  border-color: #334155;
+}
+
+.markdown-content th {
+  background-color: #f8f9fa;
+  font-weight: 600;
+}
+
+html.dark .markdown-content th {
+  background-color: #1e293b;
+}
